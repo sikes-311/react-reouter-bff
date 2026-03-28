@@ -8,13 +8,23 @@ import org.springframework.web.client.RestClient
 
 @Configuration
 class RestClientConfig {
-    @Value("\${downstream.base-url}")
-    private lateinit var downstreamBaseUrl: String
+    @Value("\${downstream.service-a.base-url}")
+    private lateinit var serviceABaseUrl: String
 
-    @Bean
-    fun restClient(): RestClient =
+    @Value("\${downstream.service-b.base-url}")
+    private lateinit var serviceBBaseUrl: String
+
+    @Bean("restClientServiceA")
+    fun restClientServiceA(): RestClient =
         RestClient.builder()
-            .baseUrl(downstreamBaseUrl)
+            .baseUrl(serviceABaseUrl)
+            .defaultHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE)
+            .build()
+
+    @Bean("restClientServiceB")
+    fun restClientServiceB(): RestClient =
+        RestClient.builder()
+            .baseUrl(serviceBBaseUrl)
             .defaultHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE)
             .build()
 }

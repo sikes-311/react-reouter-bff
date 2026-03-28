@@ -12,7 +12,10 @@ springdoc:
     path: /swagger-ui.html
 
 downstream:
-  base-url: ${DOWNSTREAM_BASE_URL:http://localhost:8081}
+  service-a:
+    base-url: ${DOWNSTREAM_SERVICE_A_BASE_URL:http://localhost:8081}
+  service-b:
+    base-url: ${DOWNSTREAM_SERVICE_B_BASE_URL:http://localhost:8082}
 
 management:
   endpoints:

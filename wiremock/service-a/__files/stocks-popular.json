@@ -1,0 +1,5 @@
+[
+  { "ticker": "AAPL",  "price": 175.50, "date": "2026-03-28", "changePercent":  1.23 },
+  { "ticker": "GOOGL", "price": 178.20, "date": "2026-03-28", "changePercent": -0.45 },
+  { "ticker": "MSFT",  "price": 420.30, "date": "2026-03-28", "changePercent":  0.78 }
+]

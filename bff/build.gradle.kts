@@ -4,6 +4,7 @@ plugins {
     id("org.springframework.boot") version "3.5.0"
     id("io.spring.dependency-management") version "1.1.7"
     id("org.jlleitschuh.gradle.ktlint") version "12.1.1"
+    id("org.springdoc.openapi-gradle-plugin") version "1.9.0"
 }
 
 group = "com.mycompany"
@@ -41,4 +42,10 @@ kotlin {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+openApi {
+    outputDir = file("../docs/api")
+    outputFileName = "openapi.json"
+    waitTimeInSeconds = 30
 }
